@@ -1,11 +1,11 @@
   <% if current_user.favtweet?(tweet) %>
     <%= form_for(current_user.favorites.find_by(tweet_id: tweet.id), html: { method: :delete }) do |f| %>
       <%= hidden_field_tag :tweet_id, tweet.id %>
-      <%= f.submit 'unfavorite', class: 'btn btn-danger btn-block' %>
+      <%= f.submit 'unfavorite', class: 'btn btn-danger btn-xs' %>
     <% end %>
   <% else %>
     <%= form_for(current_user.favorites.build) do |f| %>
       <%= hidden_field_tag :tweet_id, tweet.id %>
-      <%= f.submit 'favorite', class: 'btn btn-primary btn-block' %>
+      <%= f.submit 'favorite', class: 'btn btn-primary btn-xs ' %>
     <% end %>
   <% end %>
